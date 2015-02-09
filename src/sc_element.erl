@@ -56,3 +56,6 @@ time_left(StartTime, LeaseTime) ->
         Time when Time =< 0 -> 0;
         Time -> Time * 1000
     end.
+
+handle_info(timeout, State) ->
+    {stop, normal, State}.
