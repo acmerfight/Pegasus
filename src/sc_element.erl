@@ -57,5 +57,21 @@ time_left(StartTime, LeaseTime) ->
         Time -> Time * 1000
     end.
 
+handle_call(fetch, _From, State) ->
+    #state{value = Value,
+          lease_time = LeaseTime,
+          start_time = StartTime} = State,
+    TimeLeft = time_left(StartTime, LeaseTime),
+    {reply, {ok, Value}, State, TimeLeft}.
+
+handle_cast({replace, Value}, State) ->
+    #state{lease_time = LeaseTime,
+          start_time = StartTime} = State,
+    TimeLeft = time_left(StartTime, LeaseTime),
+    {reply, {ok, Value}, State, TimeLeft};
+
+handle_cast(delete, State) ->
+    {stop, normal, State}.
+
 handle_info(timeout, State) ->
     {stop, normal, State}.
