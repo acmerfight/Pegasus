@@ -19,7 +19,7 @@
 -record(state, {value, lease_time, start_time}).
 
 start_link(Value, LeaseTime) ->
-    sc_sup:start_link(?MODULE, [Value, lease_time], []).
+    sc_sup:start_link(?MODULE, [Value, LeaseTime], []).
 
 create(Value, LeaseTime) ->
     sc_sup:start_child(Value, LeaseTime).
@@ -75,3 +75,10 @@ handle_cast(delete, State) ->
 
 handle_info(timeout, State) ->
     {stop, normal, State}.
+
+terminate(_Reason, _State) ->
+    sc_store:delete(self()),
+    ok.
+
+code_change(_OldVsn, State, _Extra) ->
+    {ok, State}.
