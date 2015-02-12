@@ -1,4 +1,4 @@
--module(simple_cahe).
+-module(simple_cache).
 
 -export([insert/2, lookup/1, delete/1]).
 

@@ -5,7 +5,7 @@
         {vsn, "0.1.0"},
         {modules, [
             sc_app,
-            sc_sup,
+            sc_sup
         ]},
         {registered, [sc_sup]},
         {applicatons, [kernel, stdlib]},
