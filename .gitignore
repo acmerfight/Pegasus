@@ -1,3 +1,4 @@
 *.swp
 *.beam
 .DS_Store
+*.swo
