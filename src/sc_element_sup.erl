@@ -1,4 +1,4 @@
--module(sc_sup).
+-module(sc_element_sup).
 
 -behaviour(supervisor).
 
