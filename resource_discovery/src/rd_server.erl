@@ -50,3 +50,13 @@ handle_cast({add_local_resource, {Type, Resource}}, State) ->
     ResourceTuples = State#state.local_resource_tuples,
     NewResourceTuples = add_resource(Type, Resource, ResourceTuples),
     {noreply, State#state{local_resource_tuples = NewResourceTuples}};
+
+
+add_resource(Type, Resource, Dict) ->
+    case dict:find(Type, Dict) of
+        {ok, ResourceList} ->
+            NewList = [Resource | lists:delete(Resource, ResourceList)],
+            dict:store(Type, NewList, Dict);
+        error ->
+            dict:store(Type, [Resource], Dict)
+    end.
