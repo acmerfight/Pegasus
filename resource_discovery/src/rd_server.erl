@@ -51,6 +51,9 @@ handle_cast({add_local_resource, {Type, Resource}}, State) ->
     NewResourceTuples = add_resource(Type, Resource, ResourceTuples),
     {noreply, State#state{local_resource_tuples = NewResourceTuples}};
 
+handle_info(ok = _Info, State) ->
+    {noreply, State}.
+
 
 add_resource(Type, Resource, Dict) ->
     case dict:find(Type, Dict) of
