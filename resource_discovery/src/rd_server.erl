@@ -18,7 +18,7 @@
 -record(state, {target_resource_types,
                local_resource_tuples,
                found_resource_tuples}).
-
+%% API
 start_link() ->
     gen_server:start_link({local, ?SERVER}, ?MODULE, [], []).
 
@@ -33,6 +33,8 @@ fetch_resources(Type) ->
 
 trade_resources() ->
     gen_server:cast(?SERVER, trade_resources).
+
+%% CallBack
 
 init([]) ->
     {ok, #state{target_resource_types = [],
@@ -84,6 +86,7 @@ terminate(_Reason, _State) ->
 code_change(_OldVsn, State, _Extra) ->
     {ok, State}.
 
+%% Util
 add_resources([{Type, Identifier}|T], Dict) ->
     add_resources(T, add_resource(Type, Identifier, Dict));
 add_resources([], Dict) ->
