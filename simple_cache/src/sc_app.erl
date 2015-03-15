@@ -4,8 +4,14 @@
 
 -export([start/2, stop/1]).
 
+-define(WAIT_FOR_RESOURCES, 2500).
+
 start(_StartType, _StartArgs) ->
     ok = ensure_contact(),
+    resource_discovery:add_local_resource(simple_cache, node()),
+    resource_discovery:add_target_resource_type(simple_cache),
+    resource_discovery:trade_resources(),
+    timer:sleep(?WAIT_FOR_RESOURCES),
     % 存储初始化
     sc_store:init(),
     % 启动根监督者
