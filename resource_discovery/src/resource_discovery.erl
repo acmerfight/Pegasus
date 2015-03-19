@@ -1,4 +1,4 @@
--module(recource_discovery).
+-module(resource_discovery).
 
 -export([
     add_target_resource_type/1,

@@ -1,5 +1,5 @@
 {application, resource_discovery,
-[{description, "resource discovery system"}
+ [{description, "resource discovery system"},
  {vsn, "0.1.0"},
  {modules, [resource_discovery,
             rd_app,
