@@ -8,15 +8,9 @@ An cache system use Eralng
 ![](https://raw.githubusercontent.com/acmerfight/Pegasus/master/img/otp0.png)
 
 
-To build this code, run the following commands:
-
 erlc -o ./simple_cache/ebin ./simple_cache/src/*.erl
 erlc -o ./resource_discovery/ebin ./resource_discovery/src/*.erl
 
-First start one or two contact nodes. Ensure that the default
-node names in sc_app:ensure_contact() match your host name, and/or
-use -sname instead of -name. (Edit and recompile if necessary.)
-For example, in a separate terminal window, do:
 
 erl -name contact1
 
@@ -35,11 +29,3 @@ ok
 4> application:start(simple_cache).
 ok
 5>
-
-(Remember that the resource discovery will make simple_cache
-wait several seconds when it starts.)
-
-For more fun, start one or two other nodes in the same
-way (with different names, of course), and start the same
-applications on them. Then try inserting something in the
-cache on one node, and looking it up on another node.
