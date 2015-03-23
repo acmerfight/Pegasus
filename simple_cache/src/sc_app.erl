@@ -24,7 +24,7 @@ start(_StartType, _StartArgs) ->
     end.
 
 ensure_contact() ->
-    DefaultNodes = ["a@localhost", "b@localhost"],
+    DefaultNodes = ["a@yaogangqiangdeMacBook-Pro.local", "b@yaogangqiangdeMacBook-Pro.local"],
     case get_env(simple_cache, contact_nodes, DefaultNodes) of
         [] ->
             {error, no_contact_nodes};

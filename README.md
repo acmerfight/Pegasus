@@ -16,11 +16,11 @@ An cache system use Eralng
 
 启动节点，确保 `sc_app:ensure_contact()` 填写的节点和启动的相同
 
-    erl -name contact1
+    erl -name a
 
 启动 Erlang shell:
 
-    erl -name mynode -pa ./simple_cache/ebin -pa ./resource_discovery/ebin/
+    erl -name b -pa ./simple_cache/ebin -pa ./resource_discovery/ebin/
 
 在 Erlang shell 启动各个部件:
 
