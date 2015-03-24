@@ -16,7 +16,7 @@ An cache system use Eralng
 
 启动节点，确保 `sc_app:ensure_contact()` 填写的节点和启动的相同
 
-    erl -name a
+    erl -name a -pa ./simple_cache/ebin -pa ./resource_discovery/ebin/
 
 启动 Erlang shell:
 
@@ -33,3 +33,5 @@ An cache system use Eralng
     4> application:start(simple_cache).
     ok
     5>
+
+在不同的端口启动服务 a, b 两个节点方便进行测试
