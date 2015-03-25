@@ -7,6 +7,11 @@ An cache system use Eralng
 为写入缓都分配一个独立的存储进程，再将对应的键映射至该进程,缓存中的值相互独立，各有各的生命周期。同时，Erlang本身对大量轻量级进程提供了良好的支持，使得这种设计成为可能。
 ![](https://raw.githubusercontent.com/acmerfight/Pegasus/master/img/otp0.png)
 
+**整体分为两个模块**
+
+ 1. 资源发现模块，发现新启动的资源节点
+ 2. 提供缓存的模块，提供缓存的存储和接口
+
 ### 使用方法
 
 进行编译
