@@ -50,7 +50,7 @@ dynamic_db_init(CacheNodes) ->
     add_extra_nodes(CacheNodes).
 
 add_extra_nodes([Node|T]) ->
-    case mnesia:change_config(extra_db_notes, [Node]) of
+    case mnesia:change_config(extra_db_nodes, [Node]) of
         {ok, [Node]} ->
             mnesia:add_table_copy(key_to_pid, node(), ram_copies),
 
@@ -73,6 +73,6 @@ is_pid_alive(Pid) ->
                 false ->
                     false;
                 {badrpc, _Reason} ->
-                    fasle
+                    false
             end
     end.
