@@ -8,7 +8,7 @@ An cache system use Eralng
 ![](https://raw.githubusercontent.com/acmerfight/Pegasus/master/img/otp0.png)
 
  2. 缓存应用在结构上由若干持有实际存储数据的存储元素进程组成, 同时还有一张表,记录着每个键与对应的存储元素进程标识符之间的映射关系表，只有这张映射表需要在节点之间以分布式形式进行存储。由于Erlang的位置透明性,没有必要在节点间复制数据:只要Web服务器之间的网络足够高效,即便存储进程位于另一台服务器上,调用远程存储进程的速度也要远快于调用原始的软件包服务器。因此,只要所有节点都能访问到键与pid 间的映射关系,存储元素进程大可静静地待在创建它们的服务器上。
-![](ihttps://github.com/acmerfight/Pegasus/blob/master/img/16.d09z.07.png)
+![](https://github.com/acmerfight/Pegasus/blob/master/img/16.d09z.07.png)
 
 
 **整体分为两个模块**
