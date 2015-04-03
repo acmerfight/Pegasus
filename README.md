@@ -34,7 +34,7 @@ An cache system use Eralng
     erlc -o ./simple_cache/ebin ./simple_cache/src/*.erl
     erlc -o ./resource_discovery/ebin ./resource_discovery/src/*.erl
 
-启动节点，确保 `sc_app:ensure_contact()` 填写的节点和启动的相同
+启动节点，确保 `sc_app:ensure_contact()` 填写的节点和启动的节点名相同
 
     erl -sname a -pa ./simple_cache/ebin -pa ./resource_discovery/ebin/
 
